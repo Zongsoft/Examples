@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="Zongsoft.Examples.Services"
+				title="Zongsoft Examples Services Plugin"
+				author="Popeye Zhong"
+				version="1.0">
+
+	<manifest>
+		<assemblies>
+			<assembly name="Zongsoft.Examples.Services"/>
+		</assemblies>
+	</manifest>
+
+	<extension path="/Workbench/Startup">
+		<object name="TimingWorker" type="Zongsoft.Examples.Services.TimingWorker, Zongsoft.Examples.Services" />
+	</extension>
+</plugin>

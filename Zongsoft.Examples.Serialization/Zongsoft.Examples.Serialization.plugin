@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<plugin name="Zongsoft.Examples.Serialization"
+        title="Zongsoft.Examples.Serialization Plugin"
+        author="Zongsoft Corporation"
+        version="1.0"
+        description="Create by: Popeye Zhong at 2014-8-20" >
+
+	<manifest>
+		<assemblies>
+			<assembly name="Zongsoft.Examples.Serialization" />
+		</assemblies>
+	</manifest>
+
+	<extension path="/Workbench/Terminal/Commands">
+		<object name="Serialize" type="Zongsoft.Examples.Serialization.Commands.SerializeCommand, Zongsoft.Examples.Serialization" />
+		<object name="Deserialize" type="Zongsoft.Examples.Serialization.Commands.DeserializeCommand, Zongsoft.Examples.Serialization" />
+	</extension>
+</plugin>
