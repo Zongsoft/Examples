@@ -35,7 +35,7 @@ namespace Zongsoft.Examples.Services
 			this.AppendLog("Starting" + Environment.NewLine);
 
 			if(_serializer == null)
-				_serializer = new Zongsoft.Runtime.Serialization.Serializer();
+				_serializer = Zongsoft.Runtime.Serialization.Serializer.Text;
 
 			if(_timer == null)
 				_timer = new Timer(OnTick, null, 5000, 5000);

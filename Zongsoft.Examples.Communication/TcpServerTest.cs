@@ -20,8 +20,8 @@ namespace Zongsoft.Examples.Communication
 		{
 			_server = new TcpServer();
 
-			_server.Failed += new EventHandler<FailureEventArgs>(Server_Failed);
-			_server.Received += new EventHandler<ReceivedEventArgs>(Server_Received);
+			_server.Failed += Server_Failed;
+			_server.Received += Server_Received;
 		}
 
 		public void Start()
@@ -34,7 +34,7 @@ namespace Zongsoft.Examples.Communication
 			_server.Stop();
 		}
 
-		private void Server_Failed(object sender, FailureEventArgs e)
+		private void Server_Failed(object sender, ChannelFailureEventArgs e)
 		{
 			Console.WriteLine("[{0}] TcpServer 发生异常：{1}", e.Channel.ChannelId, e.Exception);
 		}

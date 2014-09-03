@@ -69,7 +69,7 @@ namespace Zongsoft.Examples.Communication
 			if(package == null)
 				return;
 
-			var packetizer = new Zongsoft.Communication.Net.TcpPacketizer();
+			var packetizer = new Zongsoft.Communication.Net.TcpPacketizer(Zongsoft.Runtime.Caching.BufferManager.Default);
 
 			using(var stream = File.Open(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "package.bin"), FileMode.Create))
 			{

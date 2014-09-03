@@ -26,8 +26,8 @@ namespace Zongsoft.Examples.Communication
 			_random = new Random();
 			_client = new TcpClient(remoteEP);
 
-			_client.Sent += new EventHandler<SentEventArgs>(Client_Sent);
-			_client.Failed += new EventHandler<FailureEventArgs>(Client_Failed);
+			_client.Sent += Client_Sent;
+			_client.Failed += Client_Failed;
 		}
 
 		public TcpClientTest(IPEndPoint remoteEP)
@@ -35,8 +35,8 @@ namespace Zongsoft.Examples.Communication
 			_random = new Random();
 			_client = new TcpClient(remoteEP);
 
-			_client.Sent += new EventHandler<SentEventArgs>(Client_Sent);
-			_client.Failed += new EventHandler<FailureEventArgs>(Client_Failed);
+			_client.Sent += Client_Sent;
+			_client.Failed += Client_Failed;
 		}
 		#endregion
 
@@ -118,7 +118,7 @@ namespace Zongsoft.Examples.Communication
 			}
 		}
 
-		private void Client_Failed(object sender, FailureEventArgs e)
+		private void Client_Failed(object sender, ChannelFailureEventArgs e)
 		{
 			Console.WriteLine("[{0}] TcpClient 发送异常：{1}", e.Channel.ChannelId, e.Exception);
 		}
