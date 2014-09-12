@@ -9,7 +9,7 @@ using Zongsoft.Services;
 using Zongsoft.ComponentModel;
 using Zongsoft.Runtime.Serialization;
 
-namespace Zongsoft.Examples.Services
+namespace Zongsoft.Examples.Daemon
 {
 	public class TimingWorker : WorkerBase
 	{

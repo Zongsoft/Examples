@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zongsoft.Examples.Services", "Zongsoft.Examples.Services.csproj", "{9B54D558-4294-4F97-AD29-03D2288B24DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zongsoft.Examples.Daemon", "Zongsoft.Examples.Daemon.csproj", "{9B54D558-4294-4F97-AD29-03D2288B24DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

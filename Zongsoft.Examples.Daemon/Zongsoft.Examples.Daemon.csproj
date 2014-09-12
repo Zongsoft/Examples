@@ -8,8 +8,8 @@
     <ProjectGuid>{9B54D558-4294-4F97-AD29-03D2288B24DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zongsoft.Examples.Services</RootNamespace>
-    <AssemblyName>Zongsoft.Examples.Services</AssemblyName>
+    <RootNamespace>Zongsoft.Examples.Daemon</RootNamespace>
+    <AssemblyName>Zongsoft.Examples.Daemon</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -47,7 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Zongsoft.Examples.Services.plugin" />
+    <None Include="Zongsoft.Examples.Daemon.plugin" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

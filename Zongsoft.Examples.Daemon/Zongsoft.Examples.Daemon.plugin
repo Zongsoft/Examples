@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="Zongsoft.Examples.Daemon"
+				title="Zongsoft Examples Daemon Plugin"
+				author="Popeye Zhong (zongsoft@gmail.com)"
+				version="1.0">
+
+	<manifest>
+		<assemblies>
+			<assembly name="Zongsoft.Examples.Daemon"/>
+		</assemblies>
+	</manifest>
+
+	<extension path="/Workbench/Startup">
+		<worker name="ZS-TimingWorker"
+		        title="{res:Text.TimingWorker.Title}"
+		        description="{res:Text.TimingWorker.Description}"
+		        disabled="false"
+		        type="Zongsoft.Examples.Daemon.TimingWorker, Zongsoft.Examples.Daemon" />
+	</extension>
+</plugin>
