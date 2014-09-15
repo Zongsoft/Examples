@@ -17,7 +17,7 @@
 		</option>
 	</extension>
 
-	<extension path="/Examples/Options">
+	<extension path="/Workbench/Examples">
 		<object name="UseGeneralElement"
 		        general="{opt:/Environment/Examples/General}"
 		        type="Zongsoft.Examples.Options.Configuration.UseOptionElementExample, Zongsoft.Examples.Options.Configuration" />
