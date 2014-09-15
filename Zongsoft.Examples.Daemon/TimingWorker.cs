@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Threading;
 using System.Linq;
@@ -11,12 +12,14 @@ using Zongsoft.Runtime.Serialization;
 
 namespace Zongsoft.Examples.Daemon
 {
+	[DisplayName("${Text.TimingWorker.Title}")]
+	[Description("${Text.TimingWorker.Description}")]
 	public class TimingWorker : WorkerBase
 	{
 		#region 成员字段
 		private ApplicationContextBase _applicationContext;
-		private ISerializer _serializer;
 		private Timer _timer;
+		private long _count;
 		#endregion
 
 		#region 构造函数
@@ -32,10 +35,9 @@ namespace Zongsoft.Examples.Daemon
 		#region 启动操作
 		protected override void OnStart(string[] args)
 		{
-			this.AppendLog("Starting" + Environment.NewLine);
+			Interlocked.Exchange(ref _count, 0);
 
-			if(_serializer == null)
-				_serializer = Zongsoft.Runtime.Serialization.Serializer.Text;
+			this.AppendLog("Starting" + Environment.NewLine);
 
 			if(_timer == null)
 				_timer = new Timer(OnTick, null, 5000, 5000);
@@ -68,11 +70,24 @@ namespace Zongsoft.Examples.Daemon
 
 		private void AppendLog(string message)
 		{
-			string filePath = Path.Combine(_applicationContext.EnsureDirectory("logs"), "TimerService.log");
+			string filePath = Path.Combine(_applicationContext.EnsureDirectory("logs"), "TimerWorker.log");
+
+			filePath = Zongsoft.IO.PathUtility.GetCurrentFilePathWithSerialNo(filePath, currentFilePath =>
+			{
+				if(!File.Exists(currentFilePath))
+					return false;
+
+				FileInfo fileInfo = new FileInfo(currentFilePath);
+				return fileInfo.Length >= 1024 * 1024;
+			});
 
 			using(var stream = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.Read))
 			{
-				_serializer.Serialize(stream, string.Format("[{0}] {1}", DateTime.Now.ToString(), message));
+				using(StreamWriter writer = new StreamWriter(stream))
+				{
+					var count = Interlocked.Increment(ref _count);
+					writer.WriteLine(string.Format("#{0} [{1}] {2}", count, DateTime.Now.ToString(), message));
+				}
 			}
 		}
 		#endregion

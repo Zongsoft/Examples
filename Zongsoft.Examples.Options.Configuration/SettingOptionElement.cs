@@ -8,6 +8,7 @@ using Zongsoft.Options.Configuration;
 
 namespace Zongsoft.Examples.Options.Configuration
 {
+	[Obsolete("不需要了，请使用 Zongsoft.Options.Configuration.SettingElement 标准实现。")]
 	public class SettingOptionElement : OptionConfigurationElement
 	{
 		[OptionConfigurationProperty("name", OptionConfigurationPropertyBehavior.IsKey)]

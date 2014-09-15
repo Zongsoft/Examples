@@ -11,10 +11,7 @@
 	</manifest>
 
 	<extension path="/Workbench/Startup">
-		<worker name="ZS-TimingWorker"
-		        title="{res:Text.TimingWorker.Title}"
-		        description="{res:Text.TimingWorker.Description}"
-		        disabled="false"
+		<object name="ZS-TimingWorker"
 		        type="Zongsoft.Examples.Daemon.TimingWorker, Zongsoft.Examples.Daemon" />
 	</extension>
 </plugin>
