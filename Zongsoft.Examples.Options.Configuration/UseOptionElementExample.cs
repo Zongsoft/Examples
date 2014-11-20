@@ -26,10 +26,10 @@ namespace Zongsoft.Examples.Options.Configuration
 			{
 				return _general;
 			}
-			set
-			{
-				_general = value;
-			}
+			//set
+			//{
+			//	_general = value;
+			//}
 		}
 		#endregion
 
