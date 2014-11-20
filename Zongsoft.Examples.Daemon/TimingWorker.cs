@@ -47,7 +47,7 @@ namespace Zongsoft.Examples.Daemon
 		#endregion
 
 		#region 停止操作
-		protected override void OnStop()
+		protected override void OnStop(params string[] args)
 		{
 			this.AppendLog("Stopping" + Environment.NewLine);
 
